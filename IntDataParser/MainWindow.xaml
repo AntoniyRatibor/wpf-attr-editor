@@ -16,10 +16,11 @@
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="20,63,0,0" TextWrapping="Wrap" Text="Chose file as output or create new:" VerticalAlignment="Top" Width="190"/>
         <TextBox x:Name="inFilePath" HorizontalAlignment="Left" Height="23" Margin="20,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
         <TextBox x:Name="outFilePath" HorizontalAlignment="Left" Height="23" Margin="20,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
-        <Button x:Name="reNumbObjBtn" Content="Renumber Objects" HorizontalAlignment="Left" Margin="351,265,0,0" VerticalAlignment="Top" Width="135" Height="35" Click="reNumbObjBtn_Click"/>
+        <Button x:Name="reNumbObjBtn" Content="Renumber Objects" HorizontalAlignment="Left" Margin="195,265,0,0" VerticalAlignment="Top" Width="135" Height="35" Click="reNumbObjBtn_Click"/>
         <TextBox x:Name="objNameFrom" HorizontalAlignment="Left" Height="23" Margin="175,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
         <TextBox x:Name="objNameTo" HorizontalAlignment="Left" Height="23" Margin="175,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="20,172,0,0" TextWrapping="Wrap" Text="Renumber obj from name:" VerticalAlignment="Top" Width="155"/>
         <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="Renumber obj to name:" VerticalAlignment="Top" Width="155"/>
+        <Button x:Name="button" Content="Create .xls file" HorizontalAlignment="Left" Margin="360,265,0,0" VerticalAlignment="Top" Width="135" Height="35" Click="button_Click"/>
     </Grid>
 </Window>

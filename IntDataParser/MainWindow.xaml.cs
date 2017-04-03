@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace IntDataParser
 {
@@ -76,7 +77,6 @@ namespace IntDataParser
                     file.WriteLine("\t<attributes jsonValue=\"{}\"/>");
                     file.WriteLine("\t<in name=\"" + intRelay + "\" type=\"И\"/>");
                     file.WriteLine("</obj>");
-                    file.WriteLine();
                     number++;
                 }
             }
@@ -113,6 +113,44 @@ namespace IntDataParser
             }
             doc.Save(outFilePath.Text);
             MessageBox.Show("File \"" + outFilePath.Text + "\" was created.", "Info");
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int i = 3;
+            Excel.Application xlApp = new Excel.Application();
+            if (xlApp == null)
+            {
+                MessageBox.Show("Excel is not properly installed!");
+                return;
+            }
+
+            Excel.Workbook workBook;
+            Excel.Worksheet workSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            workBook = xlApp.Workbooks.Add(misValue);
+            workSheet = workBook.Worksheets.get_Item(1);
+            
+            XmlDocument doc = new XmlDocument();
+            doc.Load(inFilePath.Text);
+            XmlNodeList nodeList = doc.GetElementsByTagName("obj");
+
+            foreach (XmlNode node in nodeList)
+            {
+                int j = 3;
+                workSheet.Cells[i, j] = node.Attributes["objtype"].Value;
+                j++;
+                workSheet.Cells[i, j] = node.Attributes["name"].Value;
+                j++;
+                workSheet.Cells[i, j] = node.Attributes["subtype"].Value;
+                j++;
+                workSheet.Cells[i, j] = node.Attributes["objnum"].Value;
+                i++;
+            }
+            workBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            workBook.Close(true, misValue, misValue);
+            xlApp.Quit();
         }
     }
 }
