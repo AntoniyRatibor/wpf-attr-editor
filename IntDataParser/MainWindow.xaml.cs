@@ -151,6 +151,7 @@ namespace IntDataParser
             workBook.SaveAs("d:\\csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             workBook.Close(true, misValue, misValue);
             xlApp.Quit();
+            MessageBox.Show("File was created.", "Info");
         }
     }
 }
