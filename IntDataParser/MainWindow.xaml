@@ -5,22 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntDataParser"
         mc:Ignorable="d"
-        Title="This is DC-E" Height="350" Width="525" IsManipulationEnabled="True">
+        Title="This is DC-E" Height="421" Width="735" IsManipulationEnabled="True" MinWidth="735" MinHeight="370">
     <Grid>
-        <Button x:Name="openBtn" Content="Open" HorizontalAlignment="Left" Margin="421,27,0,0" VerticalAlignment="Top" Width="65" Click="openBtn_Click"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="20,3,0,0" TextWrapping="Wrap" Text="Chose file as input:" VerticalAlignment="Top" Width="110"/>
-        <Button x:Name="saveBtn" Content="Save as" HorizontalAlignment="Left" Margin="421,85,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="saveBtn_Click"/>
-        <Button x:Name="createIntRelaysBtn" Content="Create Interface Relays" HorizontalAlignment="Left" Margin="20,265,0,0" VerticalAlignment="Top" Width="135" Click="createIntRelaysBtn_Click" Height="35"/>
-        <TextBox x:Name="objNumber" HorizontalAlignment="Left" Height="23" Margin="140,130,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="20,137,0,0" TextWrapping="Wrap" Text="objNum starts from:" VerticalAlignment="Top" Width="110"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="20,63,0,0" TextWrapping="Wrap" Text="Chose file as output or create new:" VerticalAlignment="Top" Width="190"/>
-        <TextBox x:Name="inFilePath" HorizontalAlignment="Left" Height="23" Margin="20,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
-        <TextBox x:Name="outFilePath" HorizontalAlignment="Left" Height="23" Margin="20,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="370"/>
-        <Button x:Name="reNumbObjBtn" Content="Renumber Objects" HorizontalAlignment="Left" Margin="195,265,0,0" VerticalAlignment="Top" Width="135" Height="35" Click="reNumbObjBtn_Click"/>
-        <TextBox x:Name="objNameFrom" HorizontalAlignment="Left" Height="23" Margin="175,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-        <TextBox x:Name="objNameTo" HorizontalAlignment="Left" Height="23" Margin="175,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="20,172,0,0" TextWrapping="Wrap" Text="Renumber obj from name:" VerticalAlignment="Top" Width="155"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="20,208,0,0" TextWrapping="Wrap" Text="Renumber obj to name:" VerticalAlignment="Top" Width="155"/>
-        <Button x:Name="button" Content="Create .xls file" HorizontalAlignment="Left" Margin="360,265,0,0" VerticalAlignment="Top" Width="135" Height="35" Click="button_Click"/>
+        <Button x:Name="openBtn" Content="Open" Margin="0,59,31,0" Width="65" Click="openBtn_Click" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="20,35,0,0" TextWrapping="Wrap" Text="Chose file as input:" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="saveBtn" Content="Save as" HorizontalAlignment="Right" Margin="0,117,31,0" VerticalAlignment="Top" Width="65" Height="25" Click="saveBtn_Click"/>
+        <Button x:Name="createIntRelaysBtn" Content="Create Interface Relays" Margin="15,0,0,71" VerticalAlignment="Bottom" Click="createIntRelaysBtn_Click" Height="35" HorizontalAlignment="Left" Width="135"/>
+        <TextBox x:Name="objNumber" HorizontalAlignment="Left" Height="23" Margin="140,162,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="20,169,0,0" TextWrapping="Wrap" Text="objNum starts from:" VerticalAlignment="Top" Width="110"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="20,95,0,0" TextWrapping="Wrap" Text="Chose file as output or create new:" VerticalAlignment="Top" Width="190"/>
+        <TextBox x:Name="inFilePath" Height="23" Margin="20,58,127,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="outFilePath" Height="23" Margin="20,119,127,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="reNumbObjBtn" Content="Renumber Objects" Margin="155,0,0,71" VerticalAlignment="Bottom" Height="35" Click="reNumbObjBtn_Click" HorizontalAlignment="Left" Width="135"/>
+        <TextBox x:Name="objNameFrom" HorizontalAlignment="Left" Height="23" Margin="175,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+        <TextBox x:Name="objNameTo" HorizontalAlignment="Left" Height="23" Margin="175,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="20,204,0,0" TextWrapping="Wrap" Text="Renumber obj from name:" VerticalAlignment="Top" Width="155"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="20,240,0,0" TextWrapping="Wrap" Text="Renumber obj to name:" VerticalAlignment="Top" Width="155"/>
+        <Button x:Name="button" Content="Create .xls file" Margin="15,0,0,26" VerticalAlignment="Bottom" Height="35" Click="button_Click" HorizontalAlignment="Left" Width="135"/>
+        <Button x:Name="editOutName" Content="Edit out name" Margin="295,0,0,71" VerticalAlignment="Bottom" Height="35" Click="editOutName_Click" HorizontalAlignment="Left" Width="135"/>
+        <Menu HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem x:Name="file_compare" Header="Compare OCData and IntData" Click="file_compare_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem x:Name="menuItemExit" Header="Exit" Click="menuItemExit_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="createOCD" Content="Create OCD from .xls" Margin="155,0,0,26" HorizontalAlignment="Left" Width="135" VerticalAlignment="Bottom" Height="35" Click="createOCD_Click"/>
+        <Button x:Name="createDiagBtn" Content="Diagnostic from .xls" HorizontalAlignment="Left" Margin="295,0,0,26" VerticalAlignment="Bottom" Width="135" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="createDiagBtn_Click"/>
     </Grid>
 </Window>
